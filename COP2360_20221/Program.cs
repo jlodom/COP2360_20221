@@ -29,7 +29,7 @@ namespace COP2360_20221 {
 			/* Call our method here -- this is the meat of the program. */
 			String stringRepeated = StringRepeater(stringMethodInput, intTimesToRepeat);
 			Console.WriteLine("Output: " + stringRepeated);
-			Console.WriteLine("This is just here for a final breakpoint.");
+			Console.WriteLine("This is just here to have a final breakpoint.");
 		}
 
 		/* An example method. */
