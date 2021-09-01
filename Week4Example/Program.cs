@@ -19,18 +19,18 @@ namespace Week4Example
                 if (boolNotFirstRow)
                 {
                     Dictionary<String, String> dicStringTemp = new Dictionary<string, string>();
-                    String[] stringArrayData = line.Split(',');
+                    String[] stringArrayData = line.Split('|');
                     int i = 0;
                     foreach (String stringHeader in listStringHeaders)
                     {
-                        dicStringTemp.Add(stringHeader, stringArrayData[i].Trim('"'));
+                        dicStringTemp.Add(stringHeader, stringArrayData[i]);
                         i++;
                     }
                     spreadsheet.Add(dicStringTemp);
                 }
                 else
                 {
-                    listStringHeaders = line.Replace("\"", "").Split(',').ToList<String>();
+                    listStringHeaders = line.Split("|").ToList<String>();
                 }
                 boolNotFirstRow = true;
             }
@@ -42,6 +42,8 @@ namespace Week4Example
             /* END FURTHER HAND WAVING */
             double doubleLegalFY2019 = Double.Parse(stringLegalFY2019);
             double doubleLegalFY2020 = Double.Parse(stringLegalFY2020);
+            double doubleLegalPercentChange = GetPercentChange(doubleLegalFY2019, doubleLegalFY2020);
+            Console.WriteLine("The percent change for legal was " + doubleLegalPercentChange);
         }
 
         /* Look! A Method! Like in Chapter 3! Using the sorts of calculations we do in Chapter 2! */
