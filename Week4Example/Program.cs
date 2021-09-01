@@ -23,14 +23,14 @@ namespace Week4Example
                     int i = 0;
                     foreach (String stringHeader in listStringHeaders)
                     {
-                        dicStringTemp.Add(stringHeader, stringArrayData[i]);
+                        dicStringTemp.Add(stringHeader, stringArrayData[i].Trim('"'));
                         i++;
                     }
                     spreadsheet.Add(dicStringTemp);
                 }
                 else
                 {
-                    listStringHeaders = line.Split(',').ToList<String>();
+                    listStringHeaders = line.Replace("\"", "").Split(',').ToList<String>();
                 }
                 boolNotFirstRow = true;
             }
