@@ -36,21 +36,11 @@ namespace Week4Example
             }
             /* END HAND WAVING. */
 
-            /* OKAY, A LITTLE MORE HAND-WAVING */
-            String stringLegalFY2019 = spreadsheet[13]["FY 2019 Approved Budget"];
-            String stringLegalFY2020 = spreadsheet[13]["FY 2020 Approved Budget"];
-            /* END FURTHER HAND WAVING */
-            double doubleLegalFY2019 = Double.Parse(stringLegalFY2019);
-            double doubleLegalFY2020 = Double.Parse(stringLegalFY2020);
-            double doubleLegalPercentChange = GetPercentChange(doubleLegalFY2019, doubleLegalFY2020);
-            Console.WriteLine("The percent change for legal was " + doubleLegalPercentChange);
-        }
-
-        /* Look! A Method! Like in Chapter 3! Using the sorts of calculations we do in Chapter 2! */
-        public static double GetPercentChange(double doubleBaseNumber, double doubleChangeNumber)
-        {
-            double doublePercentage = (doubleChangeNumber - doubleBaseNumber) / doubleBaseNumber;
-            return doublePercentage;
+            /* This is where we start using objects. */
+            BudgetCategory bcLegal = new BudgetCategory(spreadsheet[13]);
+            Console.WriteLine("The percent different for 2018-2019 in legal was " 
+                + bcLegal.GetPercent1819());
+           
         }
 
     }

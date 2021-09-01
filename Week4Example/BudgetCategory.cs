@@ -1,18 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+
 
 namespace Week4Example
+
 {
+    /* BudgetCategory object to show the basics of how objects work.
+     * Corresponds to a row on the CSV file for the Pensacola budget. */
     class BudgetCategory
     {
 
+        /* Our object variables. One set to public for demonstration purposes only. */
         public String category = "";
-        double fy2017 = 0;
+        double fy2017 = 0; /* We will eventually put auto-setters-and-getters here. */
         double fy2018 = 0;
         double fy2019 = 0;
         double fy2020 = 0;
 
+        /* Generic Full Constructor */
         public BudgetCategory(String tempCategory, double tempfy2017,
             double tempfy2018, double tempfy2019, double tempfy2020)
         {
@@ -22,6 +27,17 @@ namespace Week4Example
             this.fy2019 = tempfy2019;
             this.fy2020 = tempfy2020;
         }
+
+        /* Special Constructor for use with our original program. */
+        public BudgetCategory(Dictionary<String, String> dicTemp)
+        {
+            this.category = dicTemp["Category"];
+            this.fy2017 = Double.Parse(dicTemp["FY 2017 Approved Budget"]);
+            this.fy2018 = Double.Parse(dicTemp["FY 2018 Approved Budget"]);
+            this.fy2019 = Double.Parse(dicTemp["FY 2019 Approved Budget"]);
+            this.fy2020 = Double.Parse(dicTemp["FY 2020 Approved Budget"]);
+        }
+
         /* Getter / Accessor */
         public double GetFY2017()
         {
@@ -34,6 +50,7 @@ namespace Week4Example
             this.fy2017 = newValue;
         }
 
+        /* Three public methods. */
         public double GetPercent1718()
         {
             return this.GetPercentChange(this.fy2017, this.fy2018);
@@ -49,6 +66,7 @@ namespace Week4Example
             return this.GetPercentChange(this.fy2019, this.fy2020);
         }
 
+        /* We made this private because no one needs to see it. */
         private double GetPercentChange(double doubleBaseNumber, double doubleChangeNumber)
         {
             double doublePercentage = (doubleChangeNumber - doubleBaseNumber) / doubleBaseNumber;
