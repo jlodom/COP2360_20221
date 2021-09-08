@@ -18,18 +18,10 @@ namespace Week5Example
             List<double> listDoubleTemps = LoadTemps();
 
             /* Regular While Example */
-            while (boolWhileRun)
+            while (intCountOfTempsWhile < listDoubleTemps.Count)
             {
-                if(intCountOfTempsWhile < listDoubleTemps.Count)
-                {
                     doubleTotalTemps += listDoubleTemps[intCountOfTempsWhile];
-                    intCountOfTempsWhile++;
-                }
-                else
-                {
-                    boolWhileRun = false;
-                }
-                
+                    intCountOfTempsWhile++;   
             }
             Console.WriteLine("The Average Temperature is: " + (doubleTotalTemps/ intCountOfTempsWhile));
 
