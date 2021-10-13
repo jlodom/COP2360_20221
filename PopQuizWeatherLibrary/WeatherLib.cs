@@ -53,5 +53,40 @@ namespace PopQuizWeatherLibrary
 
         }
 
+        public int GetYearUnder70()
+        {
+            int intFinalYear = 0;
+            Dictionary<int, int> dicYearCounts = new Dictionary<int, int>();
+            foreach (KeyValuePair<DateTime, double> kvp in this.WeatherData)
+            {
+                if (kvp.Value < 70)
+                {
+                    int year = kvp.Key.Year;
+                    /* If the year does not exist yet in the Dictionary */
+                    if (!(dicYearCounts.ContainsKey(year)))
+                    {
+                        dicYearCounts.Add(year, 1); /* Add the year to the dictionary with 1 temp */
+                    }
+                    else
+                    {
+                        dicYearCounts[year]++; /* Find the year and add one temp to it. */
+                    }
+                }
+            }
+
+            /* We are not cheating and using Linq tonight. */
+            int lowestcount = 367;
+            foreach (KeyValuePair<int, int> kvpFinal in dicYearCounts)
+            {
+                if(lowestcount > kvpFinal.Value)
+                {
+                    lowestcount = kvpFinal.Value;
+                    intFinalYear = kvpFinal.Key;
+                }
+            }
+
+            return intFinalYear;
+        }
+
     }
 }
