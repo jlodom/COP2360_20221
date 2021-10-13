@@ -7,7 +7,9 @@ namespace PopQuizWeatherTester
     {
         static void Main(string[] args)
         {
-            WeatherLib wl = new WeatherLib("C:\\Users\\jodom\\source\\repos\\COP2360_20221\\pop_quiz_20210928\\pensacola_temperatures.csv");
+            String goodInput = "C:\\Users\\jodom\\source\\repos\\COP2360_20221\\pop_quiz_20210928\\pensacola_temperatures.csv";
+            String badInput = "C:\\Garbage\\";
+            WeatherLib wl = new WeatherLib(goodInput);
 
             Console.WriteLine("Hello World!");
         }
