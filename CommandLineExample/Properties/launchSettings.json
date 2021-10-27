@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "CommandLineExample": {
+      "commandName": "Project",
+      "commandLineArgs": " \"Doug Broxson\" C:\\Users\\jodom\\Downloads\\Contrib.txt"
+    }
+  }
+}
